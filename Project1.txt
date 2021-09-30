@@ -1,0 +1,62 @@
+Due date Saturday, Sept. 25th, 11:59PM
+
+Background
+Wireshark (Links to an external site.), tshark, and tcpdump (Links to an external site.) are programs that use the pcap library (Links to an external site.). Pcap (for Packet CAPture) is a library which works with the operation system to make copies of packets inside the operating system and deliver them to user-level programs for analysis. The pcap library (Links to an external site.), originally written in C, has been ported to numerous languages, including Java, Python, and Go.
+
+
+Assignment
+The goal of this assignment is for you to familiarize yourself with the Java version of pcap. You will create a small program that counts packets and keeps track of the sizes of the packets. Following the instructions below, you will extended a program called App.java to count the packet types. The goal is to make sure you have the development environment working for the Wireshark 2 project.
+
+You will work individually on this assignment. 
+
+App.java accepts a file in the pcap format, which is generated with the tcpdump, wireshark, or tshark  commands.  The report is an example of simple packet analysis, for example, detecting possible port-scanners and attacks on a set of local IP addresses. 
+Given a pcap file as input, App.java program prints out the following contents. The contents of each section will be  
+
+The number of all packets, which includes all types. 
+The number of UDP packets seen in the file. 
+The number of TCP packets seen in the file.
+The total bandwidth of the packet trace. That is, the total number of bytes seen divided by the total elapsed time. The bandwidth includes all the headers as well as data. 
+The header strings for each section are
+
+Total number of packets,COUNT, where count is an integer.
+Total number of UDP packets,COUNT, where count is an integer
+Total number of TCP packets,COUNT, where count is an integer
+Total bandwidth of the packet trace in Mbps,Bandwidth, where bandwidth is a floating point number of the megabits per second of the trace.
+How to get started 
+
+Your App.java must work on the ilab machines. If it does not work on the ilab machines, it's wrong. You can log into the ilab machines using the instructions at this link. (Links to an external site.)
+
+The Pcap4j examples use Maven  (Links to an external site.)as the Java build environment. Follow the instructions in the attached tutorial to get the Pcap4j examples working using Maven on the ilab machines. You will modify the App.java code (included in the attachments) and hand that in.
+
+The strategy App.java to generate the report is to write a main loop that reads in all the packets one at a time, extracts the needed information from them, and then sums up the types (TCP or UDP). 
+
+In order to read the pcap file and count the packets, look at the example source code -- see the tutorial an attachments.
+
+File Attachments 
+
+A skeleton App.java file. This file opens a pcap file and prints out the total number of packets. You must modify this file to report the correct statistics.
+Tutorial for starting project.
+2 test pcap files (small.pcap , http.pcap )
+2 example outputs on the pcap files. Your program should match the counts in these files. (small_pcap_out.txt , http_pcap_out.txt)
+Use the following commands to run and test the code. (Put the pcap files in the compiled folder)
+
+java -jar uber-pcap-1.1.0.jar small.pcap
+
+java -jar uber-pcap-1.1.0.jar http.pcap
+
+
+What to Hand in 
+
+You must hand in a single file called App.java, which is your program.
+
+Do not hand any zip files, tar files, or additional packaging (e.g. Maven pom files, etc).
+
+Grading 
+
+You handed in a working App.java code
+
+Compile success 20%
+Correct number of all packets 20% 
+Correct number of UDP packets 20% 
+Correct number of TCP packets 20%
+Correct total bandwidth of the packet trace 20% 
